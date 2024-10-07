@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram OAuth Redirect</title>
+    <script type="text/javascript">
+        // Parse the URL to extract the authorization code
+        const urlParams = new URLSearchParams(window.location.search);
+        const code = urlParams.get('code');
+        
+        // Redirect back to the app using the custom URL scheme
+        if (code) {
+            window.location.href = `myapp://callback?code=${code}`;
+        } else {
+            console.error('No code found in the URL');
+        }
+    </script>
+</head>
+<body>
+    <p>Redirecting...</p>
+</body>
+</html>
